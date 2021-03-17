@@ -118,9 +118,13 @@ describe('[Exercise 6] Car', () => {
   })
   it('[15] driving the car returns the updated odometer', () => {
     // ✨ test away
+    focus.drive(40)
+    expect(focus.odometer).toBe(40)
   })
   it('[16] driving the car uses gas', () => {
     // ✨ test away
+    focus.drive(50)
+    expect(focus.tank).toBe()
   })
   it('[17] refueling allows to keep driving', () => {
     // ✨ test away
