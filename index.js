@@ -8,6 +8,11 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  const objCopy = {...obj};
+  for (const property in obj) {
+    objCopy[property] = objCopy[property].trim()
+  }
+  return objCopy
 }
 
 /**
@@ -20,6 +25,10 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  for (const property in obj) {
+    obj[property] = obj[property].trim()
+  }
+  return obj
 }
 
 /**
@@ -32,6 +41,7 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  return Math.max(...integers)
 }
 
 class Counter {
@@ -41,6 +51,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber +1
   }
 
   /**
@@ -57,6 +68,8 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    this.count = this.count -1
+    return this.count > 0 ? this.count : 0
   }
 }
 
@@ -66,6 +79,8 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.seasons = ["summer", "fall", "winter", "spring"]
+    this.currentSeason = "spring"
   }
 
   /**
@@ -82,6 +97,14 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    const currentIndex = this.seasons.indexOf(this.currentSeason)
+    if (currentIndex === 3) {
+      this.currentSeason = this.seasons[0]
+      return this.currentSeason
+    } else {
+      this.currentSeason = this.seasons[currentIndex + 1]
+      return this.currentSeason
+    }
   }
 }
 
@@ -96,6 +119,8 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.mpg = mpg
+    this.name = name
   }
 
   /**
@@ -113,6 +138,7 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    
   }
 
   /**
@@ -150,8 +176,12 @@ class Car {
  *    // error.message is "number must be a number"
  * })
  */
-function isEvenNumberAsync(number) {
+async function isEvenNumberAsync(number) {
   // ✨ implement
+  if (!number || typeof number !== "number"){
+    return "number must be a number"
+  }
+   return number % 2 === 0 ? true : false
 }
 
 module.exports = {
